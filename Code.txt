@@ -1,0 +1,45 @@
+using System.IO;
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Hello, World!");
+    }
+}
+class AuthKey
+{
+    public string host_name = "qkgermany.appspot.com";
+    public string authorization_key = "AIcaqRff3zdCyoBT";
+    public string scramble_authorization_code(string data, int key, int reverse)
+    {
+        string result = "";
+        reverse += 1;
+        int l = int(data.length/key);
+        if(l>0)
+        {
+            if(reverse%2==0)
+            {
+                result += scramble_authorization_code(data.Substring(l),key,reverse);
+                result += scramble_authorization_code(data.Substring(0,l),key,reverse);
+            }
+            else
+            {
+                result += scramble_authorization_code(data.Substring(0,l),key,reverse);
+                result += scramble_authorization_code(data.Substring(l),key,reverse);
+            }
+            return result
+        }
+        return data;
+    }
+    public string get_authorization_code(string url, string client_date, string post_params="")
+    {
+        string msg = "https://" + this.host_name + url + client_date;
+        if(!String.IsNullOrEmpty(post_params))
+        {
+            
+        }
+        
+    }
+}

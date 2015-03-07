@@ -1,0 +1,6 @@
+c:\users\priyank\documents\visual studio 2012\Projects\PythonToCSharp\PythonToCSharp\bin\Debug\PythonToCSharp.exe.config
+c:\users\priyank\documents\visual studio 2012\Projects\PythonToCSharp\PythonToCSharp\bin\Debug\PythonToCSharp.exe
+c:\users\priyank\documents\visual studio 2012\Projects\PythonToCSharp\PythonToCSharp\bin\Debug\PythonToCSharp.pdb
+c:\users\priyank\documents\visual studio 2012\Projects\PythonToCSharp\PythonToCSharp\obj\Debug\PythonToCSharp.csprojResolveAssemblyReference.cache
+c:\users\priyank\documents\visual studio 2012\Projects\PythonToCSharp\PythonToCSharp\obj\Debug\PythonToCSharp.exe
+c:\users\priyank\documents\visual studio 2012\Projects\PythonToCSharp\PythonToCSharp\obj\Debug\PythonToCSharp.pdb

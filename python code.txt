@@ -1,0 +1,43 @@
+#!/usr/bin/python
+
+host_name = 'qkgermany.feomedia.se'
+authorization_key = 'AIcaqRff3zdCyoBT'
+ 
+ 
+
+def _scramble_authorization_code(data, key, reverse):
+    result = ""
+    reverse += 1
+    l = int(len(data) / key)
+    if l > 0:
+        if reverse % 2 == 0:
+            result += _scramble_authorization_code(data[l:], key, reverse)
+            result += _scramble_authorization_code(data[:l], key, reverse)
+        else:
+            result += _scramble_authorization_code(data[:l], key, reverse)
+            result += _scramble_authorization_code(data[l:], key, reverse)
+        return result
+    return data
+
+def _get_authorization_code(url, client_date, post_params=None):
+    msg = 'https://' + host_name + url + client_date
+   
+    if post_params:
+        msg += ''.join(sorted(post_params.values()))
+    import re
+    msg = re.sub(r'[^-abefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRSTUXYZ012346789 ,.()]', '', msg)
+    for key in [2, 3, 5]:
+        msg = _scramble_authorization_code(msg, key, 0);
+    print msg
+    import hmac
+    import hashlib
+    dig = hmac.new(authorization_key, msg=msg, digestmod=hashlib.sha256)
+    import base64
+    return base64.b64encode(dig.digest()).decode()
+    
+import json
+data = {
+    'name' : 'exelent699', 
+    'pwd' : 'ee1e8e5b499d8f58716f92520db4c341'
+    }
+print _get_authorization_code("/users/login", "2015-02-28 08:53:07", data)
